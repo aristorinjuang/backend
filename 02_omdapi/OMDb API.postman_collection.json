@@ -1,0 +1,59 @@
+{
+	"info": {
+		"_postman_id": "60e778f3-f82f-4e90-9ef9-df6747c2f35a",
+		"name": "OMDb API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Index",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/v0/?searchword=Batman&pagination=2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"v0",
+						""
+					],
+					"query": [
+						{
+							"key": "searchword",
+							"value": "Batman"
+						},
+						{
+							"key": "pagination",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Read",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/v0/tt0974015",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"v0",
+						"tt0974015"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

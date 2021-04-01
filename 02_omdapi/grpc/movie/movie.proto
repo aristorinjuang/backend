@@ -1,0 +1,92 @@
+syntax = "proto3";
+package movie;
+
+import "google/protobuf/timestamp.proto";
+import "google/protobuf/duration.proto";
+
+option go_package = "github.com/aristorinjuang/backend/02_omdapi/grpc/movie";
+
+service MovieService {
+    rpc GetMovies (MoviesRequest) returns (MoviesResponse) {}
+    rpc GetMovie (MovieRequest) returns (MovieResponse) {}
+}
+
+message Pagination {
+    uint64 total = 1;
+    uint64 per_page = 2;
+    uint64 current_page = 3;
+    uint64 last_page = 4;
+}
+
+message Writer {
+    string name = 1;
+    string description = 2;
+}
+
+message Rating {
+    string source = 1;
+    float value = 2;
+}
+
+message Currency {
+    string symbol = 1;
+    uint64 value = 2;
+}
+
+message Movie {
+    string title = 1;
+    uint64 year = 2;
+    string imdb_id = 3;
+    string type = 4;
+    string poster = 5;
+}
+
+message MovieDetail {
+    string title = 1;
+    uint64 year = 2;
+    string rated = 3;
+    google.protobuf.Timestamp released = 4;
+    google.protobuf.Duration runtime = 5;
+    repeated string genres = 6;
+    string director = 7;
+    repeated Writer writers = 8;
+    repeated string actors = 9;
+    string plot = 10;
+    repeated string languages = 11;
+    repeated string countries = 12;
+    string awards = 13;
+    string poster = 14;
+    repeated Rating ratings = 15;
+    float metascore = 16;
+    float imdb_rating = 17;
+    float imdb_votes = 18;
+    string imdb_id = 19;
+    string type = 20;
+    google.protobuf.Timestamp dvd = 21;
+    Currency box_office = 22;
+    repeated string production = 23;
+    string website = 24;
+}
+
+message MoviesRequest {
+    string search = 1;
+    uint64 page = 2;
+}
+
+message MoviesResponse {
+    bool response = 1;
+    string message = 2;
+    repeated Movie data = 3;
+    Pagination pagination = 4;
+}
+
+message MovieRequest {
+    string id = 1;
+}
+
+message MovieResponse {
+    bool response = 1;
+    string message = 2;
+    MovieDetail data = 3;
+    Pagination pagination = 4;
+}
