@@ -27,6 +27,7 @@ var (
 	err error
 )
 
+// GetMovies returns a list of movies as a proto response.
 func (s *server) GetMovies(ctx context.Context, in *movie.MoviesRequest) (*movie.MoviesResponse, error) {
 	body := movie0.GetIndex(os.Getenv("OMDBAPI"), os.Getenv("API_KEY"), in.GetSearch(), in.GetPage())
 	response := &utility.View{}
@@ -56,6 +57,7 @@ func (s *server) GetMovies(ctx context.Context, in *movie.MoviesRequest) (*movie
 	return result, nil
 }
 
+// GetMovie returns a detail of a movie as a proto response.
 func (s *server) GetMovie(ctx context.Context, in *movie.MovieRequest) (*movie.MovieResponse, error) {
 	body := movie0.GetDetail(os.Getenv("OMDBAPI"), os.Getenv("API_KEY"), in.GetId())
 	response := &utility.View{}

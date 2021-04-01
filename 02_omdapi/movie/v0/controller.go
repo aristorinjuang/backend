@@ -104,6 +104,7 @@ func getNoResponse() []byte {
 	return body
 }
 
+// GetIndex gets a list of movies by a search query.
 func GetIndex(host string, apiKey string, search string, page uint64) []byte {
 	resp, err := http.Get(fmt.Sprintf("%s/?apiKey=%s&s=%s&page=%d",
 		host,
@@ -168,6 +169,7 @@ func GetIndex(host string, apiKey string, search string, page uint64) []byte {
 	return body
 }
 
+// GetDetail gets a detail of a movie by IMDB id.
 func GetDetail(host string, apiKey string, id string) []byte {
 	resp, err := http.Get(fmt.Sprintf("%s/?apiKey=%s&i=%s",
 		host,
@@ -243,7 +245,7 @@ func GetDetail(host string, apiKey string, id string) []byte {
 	return body
 }
 
-// Index is a list of movies.
+// Index is a list of movies in routing.
 func Index(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
 
@@ -265,7 +267,7 @@ func Index(w http.ResponseWriter, r *http.Request) {
 	w.Write(response)
 }
 
-// Show shows details of the movie by ID.
+// Show shows a detail of the movie by IMDB id in routing.
 func Show(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
 

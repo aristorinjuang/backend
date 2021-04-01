@@ -17,6 +17,7 @@ type currency struct {
 	Value  uint64 `json:"value"`
 }
 
+// MovieDetail is a struct to print a movie detail.
 type MovieDetail struct {
 	Title      string        `json:"title"`
 	Year       uint64        `json:"year"`
@@ -44,6 +45,7 @@ type MovieDetail struct {
 	Website    string        `json:"website"`
 }
 
+// Movie is a struct to print a movie in a list.
 type Movie struct {
 	Title  string `json:"title"`
 	Year   uint64 `json:"year"`
