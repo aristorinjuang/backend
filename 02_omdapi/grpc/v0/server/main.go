@@ -8,9 +8,9 @@ import (
 	"net"
 	"os"
 
-	"github.com/aristorinjuang/backend/02_omdapi/grpc/movie"
-	movie0 "github.com/aristorinjuang/backend/02_omdapi/movie/v0"
+	movie "github.com/aristorinjuang/backend/02_omdapi/grpc/v0"
 	"github.com/aristorinjuang/backend/02_omdapi/utility"
+	movie0 "github.com/aristorinjuang/backend/02_omdapi/v0"
 	_ "github.com/go-sql-driver/mysql"
 	"github.com/joho/godotenv"
 	"google.golang.org/grpc"

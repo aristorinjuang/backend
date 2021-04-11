@@ -7,7 +7,7 @@ import (
 	"os"
 	"time"
 
-	"github.com/aristorinjuang/backend/02_omdapi/grpc/movie"
+	movie "github.com/aristorinjuang/backend/02_omdapi/grpc/v0"
 	"github.com/joho/godotenv"
 	"google.golang.org/grpc"
 )
